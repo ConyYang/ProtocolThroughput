@@ -1,12 +1,12 @@
 '''
-One Persistent ALoha:
+P Persistent ALoha:
 '''
 __author__ = 'Yang Yubei'
 
 import math
 
-a = 0.02
-p = 0.05
+a = 0.01
+p = 0.1
 q = 1 - p
 
 def oneP_CSMA(G):
