@@ -5,8 +5,8 @@ __author__ = 'Yang Yubei'
 
 import math
 
-a = 0.01
-p = 0.1
+a = 0.05
+p = 0.09
 q = 1 - p
 
 def oneP_CSMA(G):
