@@ -140,6 +140,9 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+.DS_Store
+
 # static files generated from Django application using `collectstatic`
 media
 static
+
