@@ -30,7 +30,7 @@ S_pA = pureAloha.pure_aloha(G)
 S_sA = slottedAloha.slotted_aloha(G)
 S_np = nonPersistent.nonP_CSMA(G)
 S_op = onePersistent.oneP_CSMA(G)
-S_pP = pPersistent.oneP_CSMA(G, 0.09)
+S_pP = pPersistent.oneP_CSMA(G, 0.09, 0.02)
 
 
 annot_max(S_pA, G, 0.28, 0.3, ax)
@@ -45,7 +45,6 @@ plt.plot(G, S_np, 'blueviolet', label='nonPersistent_CSMA')
 plt.plot(G, S_op, 'lightseagreen', label='1 Persistent_CSMA')
 plt.plot(G, S_sA, 'crimson', label='slotted_Aloha')
 plt.plot(G, S_pA, 'chocolate', label='pure_Aloha')
-
 
 plt.legend()
 plt.xscale("log")

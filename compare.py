@@ -26,11 +26,12 @@ plt.xlabel('G (Offered Channel Traffic)')
 plt.ylabel('S (Throughput)')
 
 G = np.arange(start=0, stop=100, step=0.01)
+a = 0.02
 colorList = ['#fe4a49', '#2ab7ca','orange']
 
 S_np = nonPersistent.nonP_CSMA(G)
 for i, p in enumerate(np.arange(0.01, 0.1, 0.04)):
-    S_pP = pPersistent.oneP_CSMA(G, p)
+    S_pP = pPersistent.oneP_CSMA(G, p, a)
     annot_max(S_pP, G, p * 10, p * 10, ax)
     plt.plot(G, S_pP, colorList[i], label=f'pP_CSMA p = {p:.2f}')
 

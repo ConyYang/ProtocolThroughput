@@ -5,31 +5,31 @@ __author__ = 'Yang Yubei'
 
 import math
 
-a = 0.05
+# a = 0.05
 
 
-# p = 0.09
+#p = 0.09
 # q = 1 - p
 
 
-def oneP_CSMA(G, p):
+def oneP_CSMA(G, p, a):
     S = []
     for i in range(len(G)):
-        S.append(cal_S(G[i], p))
+        S.append(cal_S(G[i], p, a))
     return S
 
 
-def cal_S(G_i, p):
+def cal_S(G_i, p, a):
     """
     :param G_i: offered channel traffic rate
     :return: S - throughput (utilization)
     """
     g = a * G_i
-    Ps = get_Ps(G_i, p)
-    Ps_i = get_Ps_i(G_i, p)
-    t = get_t(G_i, p)
-    t_i = get_t_i(G_i, p)
-    pi0 = pi_0(G_i)
+    Ps = get_Ps(G_i, p, a)
+    Ps_i = get_Ps_i(G_i, p, a)
+    t = get_t(G_i, p, a)
+    t_i = get_t_i(G_i, p, a)
+    pi0 = pi_0(G_i, a)
 
     var1 = (1 - pi0) / pi0
     var3 = 1 - math.exp(-1 * g)
@@ -41,7 +41,7 @@ def cal_S(G_i, p):
     return S_i
 
 
-def pi_0(G):
+def pi_0(G, a):
     """Calculate for Ps and ts.
     """
 
@@ -49,7 +49,7 @@ def pi_0(G):
     return pi0
 
 
-def pii_0(G):
+def pii_0(G, a):
     """Calculate for Ps' and ts'
     """
     g = G * a
@@ -57,8 +57,8 @@ def pii_0(G):
     return pii0
 
 
-def get_Ps(G, p):
-    pi0 = pi_0(G)
+def get_Ps(G, p, a):
+    pi0 = pi_0(G, a)
     g = G * a
     q = 1 - p
     '''
@@ -82,8 +82,8 @@ def get_Ps(G, p):
     return (v5 - (v6 / v7))
 
 
-def get_t(G, p):
-    pi0 = pi_0(G)
+def get_t(G, p, a):
+    pi0 = pi_0(G, a)
     g = G * a
 
     v8 = pow(pi0, p) - pi0
@@ -94,8 +94,8 @@ def get_t(G, p):
     return (v8 / v10)
 
 
-def get_Ps_i(G, p):
-    pii0 = pii_0(G)
+def get_Ps_i(G, p, a):
+    pii0 = pii_0(G, a)
     g = G * a
     q = 1 - p
     '''
@@ -118,8 +118,8 @@ def get_Ps_i(G, p):
     return v5 - (v6 / v7)
 
 
-def get_t_i(G, p):
-    pii0 = pii_0(G)
+def get_t_i(G, p, a):
+    pii0 = pii_0(G, a)
     g = G * a
 
     v8 = pow(pii0, p) - pii0
