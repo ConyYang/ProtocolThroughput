@@ -55,3 +55,4 @@ If p = 0.09, the maximum throughput of p-Persistent CSMA is better higher than n
 To make p-Persistent CSMA has a better performance, we need to set probability of retransmission higher.
 To conclude, we use maximum throughput to rank the performance of 5 models:
 p-Persistent CSMA ≈ non-Persistent CSMA > 1-persistent CSMA > Slotted ALOHA > Pure ALOHA.
+[![Watch the video](assets/main.png)](https://youtu.be/LYloJ2HxejE)
